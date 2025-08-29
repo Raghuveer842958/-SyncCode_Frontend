@@ -114,7 +114,12 @@ function EditorPage() {
   const runCode = async () => {
     setIsCompiling(true);
     try {
-      const response = await axios.post("http://localhost:5000/compile", {
+      // REACT_APP_BACKEND_URL
+      // const response = await axios.post("http://localhost:5000/compile", {
+      //   code: codeRef.current,
+      //   language: selectedLanguage,
+      // });
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/compile`, {
         code: codeRef.current,
         language: selectedLanguage,
       });
